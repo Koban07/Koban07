@@ -1,61 +1,103 @@
-<h1 align="center">Olá 👋 Eu sou o Vinícius</h1>
 
-<p align="center">
-  🎓 Técnico em TI pelo IFSP <br>
-  🎓 Técnico em Administração pela FIEC <br>
-  💻 Estudante de Engenharia de Software pela CEUNSP <br>
-</p>
+# 2. Rode em modo desenvolvimento
+npm start
 
----
+# 3. Acesse no navegador
+# http://localhost:3000
+```
 
-## 🚀 Sobre mim
-
-Sou um desenvolvedor em formação, focado em evolução constante na área de tecnologia.  
-Tenho base sólida em Java e Programação Orientada a Objetos, além de conhecimentos em Cloud Computing e Banco de Dados.
+Para gerar a versão de produção:
+```bash
+npm run build
+```
 
 ---
 
-## 🧠 Atualmente estudando
+## Estrutura de arquivos
 
-- ☕ Java
-- 🏗️ Programação Orientada a Objetos
-- 📊 Estruturas de Dados
-- 🔄 Git & GitHub
-- ☁️ Cloud Computing
-
----
-
-## 📚 Cursos e Certificações
-
-- Santander - Programação Orientada a Objetos (OOP)
-- AWS - Curso Completo de Cloud Computing
-- VMware - Virtualização
-- MySQL Workbench - Modelagem e Manipulação de Banco de Dados
-
----
-
-## 🎯 Objetivo profissional
-
-Me tornar desenvolvedor Back-end Java com foco em aplicações escaláveis e integração com Cloud.
+```
+src/
+├── assets/
+│   └── profile.jpg          ← Sua foto de perfil
+├── components/
+│   ├── Navbar.jsx / .css     ← Barra de navegação
+│   ├── Hero.jsx / .css       ← Seção inicial com foto + animação de digitação
+│   ├── About.jsx / .css      ← Sobre mim + estatísticas
+│   ├── Technologies.jsx/.css ← Cards de tecnologias
+│   ├── Studying.jsx / .css   ← O que está estudando (com barra de progresso)
+│   ├── Certifications.jsx/.css ← Certificados
+│   ├── Projects.jsx / .css   ← Projetos do GitHub
+│   └── Contact.jsx / .css    ← Links de contato
+├── App.jsx / .css            ← Componente raiz
+├── index.js                  ← Ponto de entrada React
+└── index.css                 ← Estilos globais + variáveis CSS
+```
 
 ---
 
-## 🛠️ Tecnologias
+## Como personalizar
 
-<div>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="40"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="40"/>
-</div>
+### Trocar a foto de perfil
+Substitua o arquivo `src/assets/profile.jpg` pela sua nova foto.
+
+### Adicionar tecnologias
+Abra `src/components/Technologies.jsx` e adicione um objeto no array `TECHNOLOGIES`:
+```js
+{
+  name: 'Spring Boot',
+  icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
+  level: 'Estudando',
+  levelClass: 'level-basic',
+},
+```
+
+### Adicionar certificações
+Abra `src/components/Certifications.jsx` e adicione no array `CERTIFICATIONS`:
+```js
+{
+  title: 'Nome do Certificado',
+  org: 'Organização',
+  year: '2025',
+  color: 'cert-purple',  // cert-red | cert-orange | cert-blue | cert-green | cert-purple
+  initial: 'N',
+  link: 'https://link-do-certificado.com',
+},
+```
+
+### Adicionar projetos
+Abra `src/components/Projects.jsx` e adicione no array `PROJECTS`:
+```js
+{
+  name: 'Nome do Projeto',
+  description: 'Descrição do que o projeto faz.',
+  tags: ['Java', 'MySQL'],
+  github: 'https://github.com/seu-usuario/repositorio',
+  live: null, // ou URL do deploy
+},
+```
+
+### Atualizar links de contato
+Abra `src/components/Contact.jsx` e atualize o array `CONTACTS` com seu LinkedIn e GitHub reais.
+
+### Mudar as cores
+Todas as cores estão em `src/index.css` nas variáveis CSS `:root`. As principais são:
+- `--green`: cor verde principal (`#1db954`)
+- `--black`: fundo principal (`#080c08`)
+- `--text-primary`: texto principal (`#e8f5e8`)
 
 ---
 
-## 📫 Contato
+## Deploy gratuito
 
-- LinkedIn: (coloque seu link aqui)
+**Vercel** (recomendado):
+1. Suba o projeto para um repositório no GitHub
+2. Acesse [vercel.com](https://vercel.com)
+3. Importe o repositório → deploy automático
 
----
-
-⭐ Em constante evolução.
+**GitHub Pages**:
+```bash
+npm install -g gh-pages
+# No package.json adicione "homepage": "https://seu-usuario.github.io/portfolio"
+npm run build
+gh-pages -d build
+```
