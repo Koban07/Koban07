@@ -1,37 +1,29 @@
-# Olá! Eu sou Vinicius 👋
+<div align="center">
+  <img width="1200" height="400" alt="image" src="https://github.com/user-attachments/assets/edce8f78-73d5-4983-8efe-4322596f5520" />
+</div>
 
-### Engenharia de software 
+### Vinícius Sampaio
 
-Sou uma pessoa desenvolvedora interessada em criar soluções úteis e aprender continuamente. Neste espaço, compartilho meus projetos, estudos e experiências com tecnologia.
+Oi, sou **Vinícius Sampaio**, sou estudante de **Engenharia de software** mas ja tenho diploma do técnico de informatica pelo **IFSP-SALTO**.
+não trabalho na area ainda mas estou aberto a oportunidades. gosto muito da area de nuvem e SQL e tenho interesse em aprender mais sobre cyber security.
 
-## Sobre mim
+```java
+public class Desenvolvedor {
 
-- 🌱 Atualmente estou aprendendo: **[tecnologia ou assunto]**
-- 💼 Tenho interesse em: **[área, tipo de vaga ou projeto]**
-- 📍 De: **[cidade, estado — opcional]**
-- 📫 Contato: **[seu e-mail](mailto:seu-email@exemplo.com)**
+    private final String nome = "Vinicius";
+    private final String funcao = "Estudando Engenharia de Softwaer";
+    private final String localizacao = "Indaiatuba, SP - Brasil";
+    private final String[] stack = {"Java", "Linux", "SQL", "pyhton",};
+    private final String[] ferramentas = {"Git", "VS Code", "Terminal"};
+    private final String[] estudando = {"react", "node.js", "SQL"};
 
-## Tecnologias
+    public static void main(String[] args) {
+        Desenvolvedor dev = new Desenvolvedor();
+        System.out.println("Olá! Sou " + dev.vinicius);
+    }
+}
+```
 
-> Personalize esta lista com as tecnologias que você já utiliza.
-
-`[Linguagem]` · `[Framework]` · `[Banco de dados]` · `[Ferramenta]`
-
-## Projetos em destaque
-
-### [Nome do projeto]
-
-[Uma frase explicando o que o projeto faz e para quem ele foi criado.]
-
-**Tecnologias:** `[tecnologias utilizadas]`  
-[Ver repositório](https://github.com/Koban07/[nome-do-repositorio]) · [Ver demonstração]([link-da-demo])
-
-<!-- Duplique o bloco acima para adicionar outros projetos. -->
-
-## Vamos conversar?
-
-[GitHub](https://github.com/Koban07) · [LinkedIn]([link-do-linkedin]) · [E-mail](mailto:seu-email@exemplo.com)
-
----
-
-💡 *Este README é seu cartão de visita no GitHub. Troque os textos entre colchetes pelos seus dados e remova as seções que não quiser usar.*
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=java,py,bash,linux,git,vscode,mysql,postgres,aws" alt="skills" />
+</div>
