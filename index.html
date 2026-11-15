@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vinícius Sampaio · Portfólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- =====================================================================
+  COMO EDITAR
+  • Conteúdo (textos, skills, projetos, certificados) -> bloco "DADOS" no <script> lá embaixo
+  • Cores                                              -> bloco "CORES" logo abaixo
+  • Experiência / Eventos vazios                       -> deixe a lista [] vazia
+====================================================================== -->
+
+<style>
+/* ======================= CORES (edite aqui) ======================= */
+:root{
+  --accent:#22c55e;          /* verde principal */
+  --accent-2:#10b981;        /* verde do degradê */
+  --bg:#050505; --bg-2:#0d0d0d;
+  --card:#141414; --chip:#1a1a1a;
+  --text:#f5f5f5; --muted:#a1a1aa; --border:#262626;
+}
+:root[data-theme="light"]{
+  --bg:#f7f7f8; --bg-2:#efefef; --card:#ffffff; --chip:#f4f4f5;
+  --text:#111; --muted:#55555e; --border:#e4e4e7;
+}
+
+/* ======================= BASE ======================= */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;font-family:"Space Grotesk",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:90px 0 20px}
+.title{text-align:center;font-size:2.2rem;margin:0 0 44px;font-weight:700}
+.hl{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.empty{color:var(--muted);border:1px dashed var(--border);border-radius:16px;padding:32px;text-align:center;background:var(--card)}
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ======================= BOTÕES ======================= */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:12px;font-weight:600;font-size:.92rem;border:1px solid var(--border);background:var(--card);cursor:pointer;font-family:inherit;color:var(--text);transition:.2s}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#04120a;box-shadow:0 0 24px color-mix(in srgb,var(--accent) 45%,transparent)}
+.btn.primary:hover{transform:translateY(-2px)}
+.icon-btn{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:12px;border:1px solid var(--border);background:var(--card);transition:.2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ======================= MENU ======================= */
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid color-mix(in srgb,var(--accent) 25%,transparent)}
+nav .wrap{display:flex;align-items:center;gap:8px;height:72px}
+nav .brand{font-weight:700;font-size:1.25rem;margin-right:auto;white-space:nowrap}
+nav .links{display:flex;gap:4px}
+nav .links a{white-space:nowrap;padding:8px 16px;border-radius:12px;font-size:.95rem;color:var(--text);transition:.2s}
+nav .links a:hover{color:var(--accent)}
+nav .links a.active{background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent)}
+.toggle{width:72px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--card);cursor:pointer;color:var(--accent);display:flex;align-items:center;justify-content:flex-end;padding:0 10px;margin:0 12px}
+:root[data-theme="light"] .toggle{justify-content:flex-start}
+@media(max-width:900px){nav .links{display:none}}
+
+/* ======================= HERO ======================= */
+.hero{min-height:calc(100vh - 72px);display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;padding:40px 0}
+.hero h1{font-size:clamp(2.2rem,5vw,3.4rem);margin:0;line-height:1.15}
+.hero h2{font-size:1.7rem;font-weight:500;margin:8px 0 18px}
+.hero p{max-width:540px;color:var(--muted);margin:0 0 28px}
+.hero .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.photo{width:340px;height:340px;border-radius:50%;object-fit:cover;border:4px solid #1f2a22;box-shadow:0 0 70px color-mix(in srgb,var(--accent) 55%,transparent),0 0 20px color-mix(in srgb,var(--accent) 40%,transparent);margin:auto}
+@media(max-width:700px){.photo{width:220px;height:220px}}
+
+/* ======================= SKILLS ======================= */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:36px}
+.panel{background:linear-gradient(180deg,#1a1a1a,#111);border:1px solid var(--border);border-radius:20px;padding:34px}
+:root[data-theme="light"] .panel{background:var(--card)}
+.panel .head{display:flex;gap:16px;align-items:center;margin-bottom:28px}
+.panel .head .bubble{width:44px;height:44px;border-radius:50%;background:var(--chip);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.panel h3{margin:0;font-size:1.6rem;font-weight:600;line-height:1.1}
+.panel small{color:var(--muted)}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.chip{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:var(--chip);font-size:.92rem;transition:.2s}
+.chip:hover{border-color:var(--accent);transform:translateY(-2px)}
+.chip img{width:28px;height:28px}
+
+/* ======================= TIMELINE / EVENTOS ======================= */
+.timeline{border-left:2px solid var(--border);padding-left:24px;max-width:800px;margin:auto}
+.timeline .item{position:relative;margin-bottom:28px}
+.timeline .item::before{content:"";position:absolute;left:-32px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.timeline small{color:var(--muted)}
+
+/* ======================= PROJETOS ======================= */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:30px}
+.project{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.project:hover{border-color:var(--accent);box-shadow:0 0 30px color-mix(in srgb,var(--accent) 20%,transparent);transform:translateY(-4px)}
+.project .thumb{height:220px;background:linear-gradient(135deg,#0f2a1a,#08130c);display:flex;align-items:center;justify-content:center;font-size:4rem}
+.project .thumb img{width:100%;height:100%;object-fit:cover}
+.project .body{padding:22px;display:flex;flex-direction:column;flex:1}
+.project h3{margin:0 0 8px;font-size:1.3rem}
+.project p{color:var(--muted);margin:0 0 16px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:8px;background:var(--chip);border:1px solid var(--border);font-size:.85rem}
+.tag img{width:16px;height:16px}
+.project .btn{justify-content:center;width:100%}
+.project .btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ======================= CERTIFICADOS ======================= */
+.issuer{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--c);border-radius:16px;padding:26px}
+.issuer .head{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+.issuer .logo{width:52px;height:52px;border-radius:12px;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c);border:1px solid color-mix(in srgb,var(--c) 40%,transparent);display:flex;align-items:center;justify-content:center;font-weight:700}
+.issuer h3{margin:0;font-size:1.2rem}
+.issuer small{color:var(--muted)}
+.issuer ul{list-style:none;margin:0;padding:0}
+.issuer li{padding:9px 0;border-bottom:1px solid var(--border);font-size:.93rem;display:flex;gap:10px}
+.issuer li::before{content:"✓";color:var(--c);font-weight:700}
+.issuer li.extra{display:none}
+.issuer.open li.extra{display:flex}
+.issuer .more{margin-top:14px;background:none;border:none;color:var(--c);font-weight:600;cursor:pointer;font-family:inherit;padding:0}
+
+/* ======================= CONTATO ======================= */
+.contact{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.contact a{display:flex;align-items:center;gap:14px;padding:20px;border-radius:14px;background:var(--card);border:1px solid var(--border);transition:.2s}
+.contact a:hover{border-color:var(--accent)}
+.contact .bubble{width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.contact small{color:var(--muted)}
+
+/* ======================= RODAPÉ ======================= */
+footer{margin-top:100px;background:var(--bg-2);border-top:1px solid color-mix(in srgb,var(--accent) 25%,transparent)}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding:56px 0 40px}
+@media(max-width:800px){footer .cols{grid-template-columns:1fr}}
+footer h4{margin:0 0 16px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
+footer .brand{font-size:1.2rem;font-weight:600;display:flex;gap:8px;align-items:center}
+footer p{color:var(--muted);font-size:.92rem}
+footer .social{display:flex;gap:10px;margin-top:18px}
+footer .fnav{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+footer .fnav a{display:flex;align-items:center;gap:10px;font-size:.92rem}
+footer .fnav a:hover{color:var(--accent)}
+footer .fnav span{width:32px;height:32px;border-radius:8px;background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center}
+footer .fnav svg.i{width:15px;height:15px}
+footer .bottom{border-top:1px solid var(--border);padding:22px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:.88rem}
+footer .bottom a{color:var(--accent);font-weight:600}
+</style>
+</head>
+
+<body>
+
+<!-- ===== MENU ===== -->
+<nav><div class="wrap">
+  <a class="brand" href="#sobre" id="brand"></a>
+  <div class="links">
+    <a href="#sobre">Sobre mim</a><a href="#habilidades">Habilidades</a><a href="#experiencias">Experiências</a>
+    <a href="#eventos">Eventos</a><a href="#projetos">Projetos</a><a href="#certificacoes">Certificações</a>
+  </div>
+  <button class="toggle" id="theme" aria-label="Alternar tema"></button>
+  <a class="btn primary" href="#contato">Contato</a>
+</div></nav>
+
+<div class="wrap">
+  <!-- ===== SOBRE (HERO) ===== -->
+  <header class="hero" id="sobre">
+    <div>
+      <h1>Olá, eu sou <span class="hl" id="hero-name"></span></h1>
+      <h2 id="hero-role"></h2>
+      <p id="hero-bio"></p>
+      <div class="actions" id="hero-actions"></div>
+    </div>
+    <img class="photo" id="hero-photo" alt="Foto de perfil">
+  </header>
+
+  <!-- ===== HABILIDADES ===== -->
+  <section id="habilidades">
+    <h2 class="title">Minhas <span class="hl">Habilidades</span></h2>
+    <div class="skills" id="skills"></div>
+  </section>
+
+  <!-- ===== EXPERIÊNCIAS ===== -->
+  <section id="experiencias">
+    <h2 class="title">Minhas <span class="hl">Experiências</span></h2>
+    <div id="experience"></div>
+  </section>
+
+  <!-- ===== EVENTOS ===== -->
+  <section id="eventos">
+    <h2 class="title">Participação em <span class="hl">Eventos</span></h2>
+    <div id="events"></div>
+  </section>
+
+  <!-- ===== PROJETOS ===== -->
+  <section id="projetos">
+    <h2 class="title">Meus <span class="hl">Projetos</span></h2>
+    <div class="cards" id="projects"></div>
+  </section>
+
+  <!-- ===== CERTIFICAÇÕES ===== -->
+  <section id="certificacoes">
+    <h2 class="title">Certificados e <span class="hl">Conquistas</span></h2>
+    <div class="cards" id="certs"></div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section id="contato">
+    <h2 class="title">Vamos <span class="hl">Conversar?</span></h2>
+    <div class="contact" id="contact"></div>
+  </section>
+</div>
+
+<!-- ===== RODAPÉ ===== -->
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <div class="brand"><span id="f-name"></span> <span style="color:var(--accent)">&lt;/&gt;</span></div>
+      <p id="f-tagline"></p>
+      <div class="social" id="f-social"></div>
+    </div>
+    <div><h4>Navegação</h4><div class="fnav" id="f-nav"></div></div>
+    <div><h4>Vamos conversar?</h4>
+      <p>Tem um projeto ou uma oportunidade em mente? Me mande uma mensagem.</p>
+      <a class="btn primary" href="#contato">Entrar em contato →</a>
+    </div>
+  </div>
+  <div class="bottom"><span id="f-copy"></span><a href="#sobre">↑ Voltar ao topo</a></div>
+</div></footer>
+
+<script>
+/* =====================================================================
+   DADOS  —  edite só este bloco
+===================================================================== */
+
+/* ---------- 1) PERFIL ---------- */
+const PROFILE = {
+  name:    "Vinícius Sampaio",
+  role:    "Estudante de Engenharia de Software",
+  tagline: "Estudante de Engenharia de Software | Técnico em Informática | Python, Java & SQL",
+  bio:     "Formado em Técnico em Informática e Técnico em Administração, busco uma oportunidade na área de TI. Tenho interesse em desenvolvimento de software, banco de dados, nuvem e infraestrutura, e estou sempre disposto a aprender e contribuir com a equipe.",
+  photo:   "https://avatars.githubusercontent.com/u/180284529?v=4",   // ou "foto.jpg"
+  resume:  "Curriculo.pdf",
+  github:   "https://github.com/Koban07",
+  linkedin: "https://www.linkedin.com/in/vinícius-sampaio-faria-campos-9a6818284",
+  email:    "viniciussampaio3010@gmail.com"
+};
+
+/* ---------- 2) ÍCONES das tecnologias (usados nas skills e nas tags dos projetos) ----------
+   Para adicionar um novo: "Nome": "pasta/arquivo.svg"  — lista em https://devicon.dev  */
+const ICON_URL = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/";
+const ICONS = {
+  "HTML5":"html5/html5-original.svg", "CSS3":"css3/css3-original.svg", "JavaScript":"javascript/javascript-original.svg",
+  "Python":"python/python-original.svg", "Flask":"flask/flask-original.svg", "Node.js":"nodejs/nodejs-original.svg",
+  "Java":"java/java-original.svg", "C":"c/c-original.svg",
+  "PostgreSQL":"postgresql/postgresql-original.svg", "MySQL":"mysql/mysql-original.svg",
+  "Git / GitHub":"github/github-original.svg", "VS Code":"vscode/vscode-original.svg", "Linux":"linux/linux-original.svg",
+  "Bash":"bash/bash-original.svg", "AWS":"amazonwebservices/amazonwebservices-plain-wordmark.svg",
+  "Telegram":"telegram/telegram-original.svg"
+};
+
+/* ---------- 3) HABILIDADES (4 grupos) ----------  icon: globe | server | database | wrench */
+const SKILLS = [
+  { title:"Front-end",      tagline:"Interfaces simples, responsivas e acessíveis", icon:"globe",
+    items:["HTML5","CSS3","JavaScript"] },
+  { title:"Back-end",       tagline:"Lógica, APIs e automações",                    icon:"server",
+    items:["Python","Flask","Node.js","Java","C"] },
+  { title:"Banco de Dados", tagline:"Modelagem e consultas SQL",                    icon:"database",
+    items:["PostgreSQL","MySQL"] },
+  { title:"Ferramentas",    tagline:"Ambiente, versionamento e nuvem",              icon:"wrench",
+    items:["Git / GitHub","VS Code","Linux","Bash","AWS"] }
+];
+
+/* ---------- 4) EXPERIÊNCIAS ([] = mostra "em breve") ----------
+   {role:"Cargo", company:"Empresa", period:"Fev 2026 - Atual", mode:"Presencial", bullets:["...","..."]} */
+const EXPERIENCE = [];
+
+/* ---------- 5) EVENTOS ([] = mostra "em breve") ----------
+   {name:"Hackathon X", date:"2026", desc:"...", result:"1º lugar"} */
+const EVENTS = [];
+
+/* ---------- 6) PROJETOS ----------
+   img: "img/print.png" ou "" (usa o emoji)   status: "code" = Ver código | "dev" = Em desenvolvimento | "live" = Acessar sistema */
+const PROJECTS = [
+  { name:"Job Finder Bot", emoji:"🤖", img:"",
+    desc:"Bot do Telegram que envia vagas de emprego com base no seu currículo.",
+    tags:["Python","Telegram"], link:"https://github.com/Koban07/job-finder-bot", status:"code" },
+  { name:"Jogo da Adivinhação", emoji:"🎯", img:"",
+    desc:"Jogo de adivinhação em Python para treinar lógica de programação.",
+    tags:["Python"], link:"https://github.com/Koban07/jogo-adivinha-o", status:"code" }
+];
+
+/* ---------- 7) CERTIFICADOS (por instituição) ----------
+   color: cor da marca   logo: texto do quadradinho   (mostra 3; o resto fica em "Ver todos") */
+const CERTS = [
+  { issuer:"AWS", logo:"AWS", color:"#ff9900", courses:[
+      "Curso de Nuvem AWS"                 // ← troque pelo nome exato
+  ]},
+  { issuer:"Udemy", logo:"U", color:"#a435f0", courses:[
+      "Nome do curso 1",                   // ← troque pelos seus cursos
+      "Nome do curso 2"
+  ]},
+  { issuer:"Idiomas", logo:"EN", color:"#38bdf8", courses:[
+      "Inglês Intermediário (2022 - 2026)"
+  ]},
+  { issuer:"Formação Acadêmica", logo:"🎓", color:"#22c55e", courses:[
+      "Engenharia de Software — CEUNSP Salto (cursando)",
+      "Técnico em Informática — IFSP Salto (2025)",
+      "Técnico em Administração — FIEC (2025)"
+  ]}
+];
+
+/* =====================================================================
+   CÓDIGO  —  não precisa mexer daqui para baixo
+===================================================================== */
+const $ = id => document.getElementById(id);
+const SVG = {
+  globe:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>',
+  server:'<rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/>',
+  database:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  wrench:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>',
+  linkedin:'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>',
+  github:'<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.4 6.4-1.5 6.4-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.6 16 2.5a13.4 13.4 0 0 0-7 0C6.3.6 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.5 3.3 6.6 6.4 7A3.4 3.4 0 0 0 9 18.1V22"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/>',
+  download:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  code:'<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>',
+  briefcase:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>',
+  calendar:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  folder:'<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/>',
+  award:'<circle cx="12" cy="8" r="6"/><path d="M8.2 13 7 22l5-3 5 3-1.2-9"/>',
+  moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'
+};
+const ic = n => `<svg class="i" viewBox="0 0 24 24">${SVG[n]}</svg>`;
+const techImg = n => ICONS[n] ? `<img src="${ICON_URL + ICONS[n]}" alt="" loading="lazy">` : "";
+const SOCIAL = [["linkedin",PROFILE.linkedin,"LinkedIn"],["github",PROFILE.github,"GitHub"],["mail","mailto:"+PROFILE.email,"E-mail"]];
+const socialBtns = () => SOCIAL.map(([i,u,t]) => `<a class="icon-btn" href="${u}" title="${t}" target="_blank" rel="noopener">${ic(i)}</a>`).join("");
+
+// perfil
+$("brand").textContent = $("f-name").textContent = PROFILE.name;
+$("hero-name").textContent = PROFILE.name;
+$("hero-role").textContent = PROFILE.role;
+$("hero-bio").textContent = PROFILE.bio;
+$("hero-photo").src = PROFILE.photo;
+$("hero-actions").innerHTML = socialBtns() + `<a class="btn primary" href="${PROFILE.resume}" download>${ic("download")} Baixar Currículo</a>`;
+
+// habilidades
+$("skills").innerHTML = SKILLS.map(g => `
+  <div class="panel">
+    <div class="head"><div class="bubble">${ic(g.icon)}</div><div><h3>${g.title}</h3><small>${g.tagline}</small></div></div>
+    <div class="chips">${g.items.map(n => `<div class="chip">${techImg(n)}${n}</div>`).join("")}</div>
+  </div>`).join("");
+
+// experiências e eventos
+$("experience").innerHTML = EXPERIENCE.length
+  ? `<div class="timeline">${EXPERIENCE.map(e => `<div class="item"><b>${e.role}</b> · ${e.company}<br><small>${e.period}${e.mode ? " · " + e.mode : ""}</small><ul>${(e.bullets||[]).map(b => `<li>${b}</li>`).join("")}</ul></div>`).join("")}</div>`
+  : `<div class="empty">Em busca da primeira oportunidade profissional — em breve por aqui. 🌱</div>`;
+$("events").innerHTML = EVENTS.length
+  ? `<div class="cards">${EVENTS.map(e => `<div class="project"><div class="body"><h3>${e.name}</h3><small>${e.date}</small><p>${e.desc}</p><span class="tag">${e.result}</span></div></div>`).join("")}</div>`
+  : `<div class="empty">Ainda não participei de eventos, mas pretendo participar em breve. 🚀</div>`;
+
+// projetos
+const STATUS = { code:"Ver Código ↗", dev:"Em Desenvolvimento →", live:"Acessar Sistema ↗" };
+$("projects").innerHTML = PROJECTS.map(p => `
+  <div class="project">
+    <div class="thumb">${p.img ? `<img src="${p.img}" alt="${p.name}">` : p.emoji}</div>
+    <div class="body">
+      <h3>${p.name}</h3><p>${p.desc}</p>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${techImg(t)}${t}</span>`).join("")}</div>
+      <a class="btn" href="${p.link}" target="_blank" rel="noopener">${STATUS[p.status] || "Ver projeto"}</a>
+    </div>
+  </div>`).join("");
+
+// certificados
+const SHOW = 3;
+$("certs").innerHTML = CERTS.map(c => `
+  <div class="issuer" style="--c:${c.color}">
+    <div class="head"><div class="logo">${c.logo}</div><div><h3>${c.issuer}</h3><small>${c.courses.length} ${c.courses.length === 1 ? "certificado" : "certificados"}</small></div></div>
+    <ul>${c.courses.map((x, i) => `<li class="${i >= SHOW ? "extra" : ""}">${x}</li>`).join("")}</ul>
+    ${c.courses.length > SHOW ? `<button class="more">Ver todos →</button>` : ""}
+  </div>`).join("");
+$("certs").addEventListener("click", e => {
+  if (!e.target.classList.contains("more")) return;
+  const card = e.target.closest(".issuer"); card.classList.toggle("open");
+  e.target.textContent = card.classList.contains("open") ? "Ver menos ↑" : "Ver todos →";
+});
+
+// contato
+$("contact").innerHTML = SOCIAL.map(([i,u,t]) => `<a href="${u}" target="_blank" rel="noopener"><span class="bubble">${ic(i)}</span><span><b>${t}</b><br><small>${{mail:PROFILE.email, linkedin:PROFILE.name, github:"@" + PROFILE.github.split("/").pop()}[i]}</small></span></a>`).join("");
+
+// rodapé
+$("f-tagline").textContent = PROFILE.tagline;
+$("f-social").innerHTML = socialBtns();
+$("f-nav").innerHTML = [["user","sobre","Sobre mim"],["code","habilidades","Habilidades"],["briefcase","experiencias","Experiências"],["calendar","eventos","Eventos"],["folder","projetos","Projetos"],["award","certificacoes","Certificações"]]
+  .map(([i,id,t]) => `<a href="#${id}"><span>${ic(i)}</span>${t}</a>`).join("");
+$("f-copy").textContent = `© ${new Date().getFullYear()} ${PROFILE.name}. Todos os direitos reservados.`;
+
+// menu ativo conforme a rolagem
+const navLinks = [...document.querySelectorAll("nav .links a")];
+const observer = new IntersectionObserver(entries => entries.forEach(en => {
+  if (en.isIntersecting) navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));
+}), { rootMargin:"-45% 0px -50% 0px" });
+document.querySelectorAll("#sobre, section").forEach(s => observer.observe(s));
+
+// tema (escuro por padrão)
+const root = document.documentElement;
+const paintToggle = () => $("theme").innerHTML = ic(root.dataset.theme === "light" ? "sun" : "moon");
+$("theme").onclick = () => { root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light"; paintToggle(); };
+paintToggle();
+</script>
+</body>
+</html>
